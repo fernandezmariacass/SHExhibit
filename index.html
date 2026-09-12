@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHExhibit of the South</title>
+
+<!-- Our stylesheet -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="#home" class="logo">SHExhibit</a>
+
+      <!-- Hamburger button, only visible on mobile (toggled by script.js) -->
+      <button id="navToggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="mainNav" class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <!-- Optional dark / light mode switch -->
+        <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (light pink, dark)">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ PAGE 1: FRONT PAGE / HERO (unchanged, only fonts + colors updated) ============ -->
+  <section id="home" class="hero-banner">
+    <img src="img/hero-banner.jpg" alt="Santa Rosa Arch, Laguna">
+    <div class="hero-banner-content">
+      <h1>SHExhibit of the South: The Unveiled Corners of Beauty in Sta Rosa, Laguna</h1>
+      <p>A community map of the paintings, pottery, and sculpture that make this city feel like home.</p>
+      <a href="#gallery" class="btn-primary">Explore the Trail</a>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY: TAG FILTER BAR + ARCH GRID ============ -->
+  <section id="gallery" class="gallery-section">
+    <div class="section-inner">
+      <h2 class="section-title">Gallery</h2>
+
+      <!-- Tag pill buttons are generated here by script.js from data.json's "tags" list -->
+      <div id="tagBar" class="tag-bar"></div>
+
+      <!-- Arch cards (image only, no text) are generated here by script.js -->
+      <div id="artworkGrid" class="artwork-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 3: ABOUT US SECTION ============ -->
+  <section id="about" class="about-section">
+    <div class="section-inner about-inner">
+      <h2 class="section-title">About Us</h2>
+      <!-- Filled in by script.js from data.json's "about" object -->
+      <p id="groupIntro" class="about-text"></p>
+
+      <h3 class="team-heading">Meet the Team</h3>
+      <!-- 6 member cards (3 per row, 2 rows), built by script.js from data.json's "about.team_members" list -->
+      <div id="teamGrid" class="team-grid"></div>
+
+      <h3>Course / Section</h3>
+      <p id="courseSection" class="about-text"></p>
+
+      <h3>Why We Created This</h3>
+      <p id="whyStatement" class="about-text"></p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 SHExhibit of the South. Made with care in Santa Rosa, Laguna.</p>
+  </footer>
+
+  <!-- ============ MODAL / POP-UP FOR "READ MORE" ============ -->
+  <div id="artworkModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="modalClose" class="modal-close" aria-label="Close">&times;</button>
+
+      <img id="modalImage" class="modal-image" src="" alt="">
+
+      <div class="modal-body">
+        <h2 id="modalTitle"></h2>
+        <p class="modal-meta">
+          <span id="modalArtist"></span> &middot;
+          <span id="modalYear"></span> &middot;
+          <span id="modalType"></span>
+        </p>
+
+        <!-- Tags shown as small, non-clickable pills -->
+        <div id="modalTags" class="modal-tags"></div>
+
+        <h3>What We See</h3>
+        <p id="modalWhatWeSee"></p>
+
+        <h3>Our Interpretation</h3>
+        <p id="modalInterpretation"></p>
+
+        <h3>Why We Chose It</h3>
+        <p id="modalWhyChosen"></p>
+
+        <h3>Personal Appreciation</h3>
+        <p id="modalPersonal"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our JavaScript, loaded last so the page content exists before it runs -->
+  <script src="script.js"></script>
+</body>
+</html>

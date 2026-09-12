@@ -1,0 +1,161 @@
+{
+  "tags": [
+    "All",
+    "Painting",
+    "Modern",
+    "Classic",
+    "Portrait",
+    "Philippines"
+  ],
+  "artworks": [
+    {
+      "artwork_id": "1",
+      "artwork_image": "img/gallery/bunny-bow.jpg",
+      "artwork_title": "Spoliarium",
+      "artist_name": "Juan Luna",
+      "artwork_year": "1884",
+      "artwork_tags": [
+        "Classic",
+        "Painting",
+        "Philippines"
+      ],
+      "art_type": "Oil on canvas",
+      "hero_image": "img/gallery/bunny-bow.jpg",
+      "what_we_see": "Two lifeless gladiators are dragged across a dim, cavernous arena floor by Roman soldiers, while onlookers react in the shadows. The scene is heavy with somber, earthen tones and dramatic light.",
+      "our_interpretation": "Many Filipino historians read the painting as an allegory for colonial suffering: the gladiators standing in for the Filipino people, exploited and discarded under foreign rule.",
+      "why_we_chose_it": "Spoliarium is one of the most recognized Filipino artworks in history and a natural starting point for a trail celebrating art with deep cultural roots.",
+      "personal_analysis": "What strikes us most is the restraint in the color palette against the violence of the subject. It asks the viewer to sit with discomfort rather than look away, which feels like the whole point."
+    },
+    {
+      "artwork_id": "2",
+      "artwork_image": "img/gallery/lab-sunset.jpg",
+      "artwork_title": "Kanlungan",
+      "artist_name": "Marisol Aquino",
+      "artwork_year": "2019",
+      "artwork_tags": [
+        "Painting",
+        "Modern"
+      ],
+      "art_type": "Acrylic on canvas",
+      "hero_image": "img/gallery/lab-sunset.jpg",
+      "what_we_see": "Warm interior light spills across a modest home, rendered in loose, confident brushwork.",
+      "our_interpretation": "The piece reads as a meditation on shelter and belonging, themes that resonate across Santa Rosa's growing neighborhoods.",
+      "why_we_chose_it": "Its local subject matter and accessible style make it a favorite stop on the trail.",
+      "personal_analysis": "There is a tenderness in how ordinary rooms are painted here, as if the artist wanted us to notice what we usually overlook."
+    },
+    {
+      "artwork_id": "3",
+      "artwork_image": "img/gallery/schnauzer-begging.jpg",
+      "artwork_title": "Tanawin",
+      "artist_name": "Domingo Rivas",
+      "artwork_year": "2021",
+      "artwork_tags": [
+        "Painting",
+        "Modern",
+        "Philippines"
+      ],
+      "art_type": "Oil on canvas",
+      "hero_image": "img/gallery/schnauzer-begging.jpg",
+      "what_we_see": "Overlapping geometric shapes suggest rooftops and power lines dissolving into abstraction.",
+      "our_interpretation": "A way of seeing the everyday city as something worth slowing down for.",
+      "why_we_chose_it": "It bridges realism and abstraction in a way that sparked a lot of discussion in our group.",
+      "personal_analysis": "The more we looked, the more the 'skyline' resembled a heartbeat line — deliberate or not, we loved that reading."
+    },
+    {
+      "artwork_id": "4",
+      "artwork_image": "img/gallery/chihuahua-smile.jpg",
+      "artwork_title": "Ina",
+      "artist_name": "Consuelo Mendiola",
+      "artwork_year": "1998",
+      "artwork_tags": [
+        "Classic",
+        "Portrait",
+        "Philippines"
+      ],
+      "art_type": "Oil on canvas",
+      "hero_image": "img/gallery/chihuahua-smile.jpg",
+      "what_we_see": "A seated woman in muted traditional dress, gazing just past the viewer, hands folded in her lap.",
+      "our_interpretation": "A quiet study of motherhood and patience, painted with unusual tenderness for its era.",
+      "why_we_chose_it": "It's one of the few portraits in the trail painted by a woman artist, and it shows.",
+      "personal_analysis": "The gaze never quite meets yours, which somehow makes the portrait feel more honest, not less."
+    },
+    {
+      "artwork_id": "5",
+      "artwork_image": "img/gallery/sleepy-cartoon.jpg",
+      "artwork_title": "Anak ng Lupa",
+      "artist_name": "Reynaldo Basco",
+      "artwork_year": "2016",
+      "artwork_tags": [
+        "Portrait",
+        "Modern",
+        "Philippines"
+      ],
+      "art_type": "Charcoal on paper",
+      "hero_image": "img/gallery/sleepy-cartoon.jpg",
+      "what_we_see": "A weathered farmer's face rendered in bold, confident charcoal strokes, half in shadow.",
+      "our_interpretation": "A tribute to the agricultural roots still visible on Santa Rosa's outskirts, even as the city grows upward.",
+      "why_we_chose_it": "It grounds the trail in the people who worked this land long before the malls arrived.",
+      "personal_analysis": "The shadow half of the face is the part we kept coming back to — it feels like it's hiding a whole life story."
+    },
+    {
+      "artwork_id": "6",
+      "artwork_image": "img/gallery/bullterrier-closeup.jpg",
+      "artwork_title": "Paglipad",
+      "artist_name": "Unknown",
+      "artwork_year": "2020",
+      "artwork_tags": [
+        "Painting",
+        "Modern"
+      ],
+      "art_type": "Mixed media on canvas",
+      "hero_image": "img/gallery/bullterrier-closeup.jpg",
+      "what_we_see": "Layered paper cutouts of birds mid-flight, collaged over a soft gradient sky.",
+      "our_interpretation": "A hopeful piece about movement and change, fitting for a city in transition.",
+      "why_we_chose_it": "Its mixed-media texture stands out from the mostly flat paintings elsewhere on the trail.",
+      "personal_analysis": "We like that it doesn't try to be photorealistic — the cut edges of the paper are part of the charm."
+    }
+  ],
+  "about": {
+    "group_introduction": "We are a group of students documenting the art hiding in plain sight around Santa Rosa, Laguna — from museum-grade works to pieces made by our own neighbors.",
+    "team_members": [
+      {
+        "name": "Member Name 1",
+        "role": "Role / Position",
+        "photo": "img/team/placeholder-avatar.svg",
+        "socials": { "gmail": "#", "facebook": "#", "linkedin": "#" }
+      },
+      {
+        "name": "Member Name 2",
+        "role": "Role / Position",
+        "photo": "img/team/placeholder-avatar.svg",
+        "socials": { "gmail": "#", "facebook": "#", "linkedin": "#" }
+      },
+      {
+        "name": "Member Name 3",
+        "role": "Role / Position",
+        "photo": "img/team/placeholder-avatar.svg",
+        "socials": { "gmail": "#", "facebook": "#", "linkedin": "#" }
+      },
+      {
+        "name": "Member Name 4",
+        "role": "Role / Position",
+        "photo": "img/team/placeholder-avatar.svg",
+        "socials": { "gmail": "#", "facebook": "#", "linkedin": "#" }
+      },
+      {
+        "name": "Member Name 5",
+        "role": "Role / Position",
+        "photo": "img/team/placeholder-avatar.svg",
+        "socials": { "gmail": "#", "facebook": "#", "linkedin": "#" }
+      },
+      {
+        "name": "Member Name 6",
+        "role": "Role / Position",
+        "photo": "img/team/placeholder-avatar.svg",
+        "socials": { "gmail": "#", "facebook": "#", "linkedin": "#" }
+      }
+    ],
+    "course_section": "Course Code — Section",
+    "why_we_created_statement": "We built this trail because so much local art goes unlabeled and unexplained. We wanted a place where a painting on a barangay hall wall gets the same care and context as something hanging in a museum."
+  }
+}
