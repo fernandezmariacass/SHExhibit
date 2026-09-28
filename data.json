@@ -13,10 +13,11 @@
       "artwork_image": "img/ayen's-little-town.HEIC",
       "artwork_title": "Ayen's Little Town",
       "artist_name": "Little Town",
-      "artwork_year": "2020",
+      "location": " Life n Arts (Ayala Mall, Nuvali)",
       "artwork_tags": [
-        "Painting",
-        "Modern"
+        "Classic",
+        "Modern",
+        "Philippines"
       ],
       "art_type": "Ayen Quias",
       "hero_image": "img/ayen's-little-town.HEIC",
@@ -30,7 +31,7 @@
       "artwork_image": "img/Ceiling-Murals-of-the-Apostles.HEIC",
       "artwork_title": "Ceiling Murals of the Apostles",
       "artist_name": "Unknown",
-      "artwork_year": "2019",
+      "location": "Parokya ni Santa Rosa de Lima, Santa Rosa, Laguna",
       "artwork_tags": [
         "Painting",
         "Modern",
@@ -48,7 +49,7 @@
       "artwork_image": "img/the-choosing.HEIC",
       "artwork_title": "The Choosing",
       "artist_name": "Buhay Mendoza",
-      "artwork_year": "2021",
+      "location": " Life n Arts (Ayala Mall, Nuvali)",
       "artwork_tags": [
         "Painting",
         "Modern",
@@ -66,12 +67,11 @@
       "artwork_image": "img/can-i-take-your-order-pls.HEIC",
       "artwork_title": "CAN I TAKE YOUR ORDER PLEASE?",
       "artist_name": " Buhay Mendoza",
-      "artwork_year": "1998",
+      "location": " Life n Arts (Ayala Mall, Nuvali)",
       "artwork_tags": [ 
         "Painting",
         "Classic",
-        "Portrait",
-        "Philippines"
+        "Philippines",
       ],
       "art_type": "Oil on canvas",
       "hero_image": "img/can-i-take-your-order-pls.HEIC",
@@ -85,7 +85,7 @@
       "artwork_image": "img/St.-Rose-of-Lima.HEIC",
       "artwork_title": "St. Rose of Lima",
       "artist_name": "Unknown",
-      "artwork_year": "2016",
+      "location": "Parokya ni Santa Rosa de Lima, Santa Rosa, Laguna",
       "artwork_tags": [
         "Painting",
         "Portrait",
@@ -104,10 +104,11 @@
       "artwork_image": "img/the-fish-vendor.HEIC",
       "artwork_title": "The Fish Vendor",
       "artist_name": "Buhay Mendoza",
-      "artwork_year": "2020",
+      "location": "Life n Arts (Ayala Mall, Nuvali)",
       "artwork_tags": [
         "Painting",
-        "Modern"
+        "Modern",
+        "Philippines"
       ],
       "art_type": "Oil on Canvas",
       "hero_image": "img/the-fish-vendor.HEIC",
@@ -121,7 +122,7 @@
       "artwork_image": "img/the-foundation.HEIC",
       "artwork_title": "THE FOUNDATION",
       "artist_name": "Buhay Mendoza",
-      "artwork_year": "1884",
+      "location": "Life n Arts (Ayala Mall, Nuvali)",
       "artwork_tags": [
         "Classic",
         "Painting",
@@ -139,10 +140,10 @@
       "artwork_image": "img/Makinilya.HEIC",
       "artwork_title": "Makinilya",
       "artist_name": "Unknown",
-      "artwork_year": "2020",
+      "location": "Museo de Santa Rosa (P. Gomez Street, Barangay Kanluran, City of Santa Rosa, Laguna)",
       "artwork_tags": [
-        "Painting",
-        "Modern"
+        "Classic",
+        "Philippines"
       ],
       "art_type": "Industrial Design / Applied Art",
       "hero_image": "img/Makinilya.HEIC",
@@ -156,10 +157,11 @@
       "artwork_image": "img/vigan.HEIC",
       "artwork_title": "Vigan",
       "artist_name": "Jovan Benito",
-      "artwork_year": "2020",
+      "location": "Life n Arts (Ayala Mall, Nuvali)",
       "artwork_tags": [
         "Painting",
-        "Modern"
+        "Modern",
+        "Philippines"
       ],
       "art_type": "Oil on Canvas",
       "hero_image": "img/vigan.HEIC",
@@ -168,6 +170,24 @@
       "our_interpretation": "The artwork expresses a deep sense of nostalgia and love for traditional Filipino culture and community life. Through everyday scenes like street vendors and romantic serenades, the painting highlights the simple joys and warmth of togetherness under the historic colonial architecture of Calle Crisologo.",
       "our_judgement": "This is successful artwork because it skillfully blends techniques with a warm, lively composition that captures the charm and warmth of Filipino heritage."
     },
+    {
+      "artwork_id": "10",
+      "artwork_image": "img/vivid-stories.HEIC",
+      "artwork_title": "Vivid Stories",
+      "artist_name": "Jovan Benito",
+      "location": "Ayala Malls Solenad 3, Nuvali, Santa Rosa, Laguna",
+      "artwork_tags": [
+        "Painting",
+        "Modern",
+        "Philippines"
+      ],
+      "art_type": "Oil on Canvas",
+      "hero_image": "img/vivid-stories.HEIC",
+      "what_we_see": "A colorful scene of villagers gathered around a small campfire at night. While others sing, dance, and shake tambourines and maracas, two men in the center play guitars. A man roasts a fish on the right, while a woman on the left holds a tray of bread. A large moon hangs over the trees in a starry sky, a nipa hut stands in the background, and a pineapple and other fruits sit in the corner. ",
+      "personal_analysis": "The community's long, stretched faces, large, heavy-lidded eyes, and straightforward shapes, almost like cutouts, give the painting a playful, storybook vibe. Rich and striking hues are used, with warm oranges, yellows, and greens for the people and plants and deep blue and purple for the night sky. Your eyes are constantly scanning the scene because the crowd is positioned in a loose circle around the fire, which is in the center. The vibe is further enhanced by the vibrant and busy patterns on their clothing.",
+      "our_interpretation": "The artwork seems to be a celebration of Filipino community life. The bayanihan spirit, where people gather to cook, eat, and spend time together, is symbolized by the nipa hut, food, music, and shared fire. Although everyone is participating in a different activity, they are all a part of the same group, demonstrating that happiness is a shared experience rather than something you do alone.",
+      "our_judgement": " It's a warm, cheerful painting with an immediately recognizable strong style. It's easy to relate to because it brings back memories of actual get-togethers and fiestas and serves as a helpful reminder that ordinary, everyday moments spent with family and neighbors are worthy of celebration."
+    }
   ],
   "about": {
     "group_introduction": "We are a group of students documenting the art hiding in plain sight around Santa Rosa, Laguna — from museum-grade works to pieces made by our own neighbors.",
