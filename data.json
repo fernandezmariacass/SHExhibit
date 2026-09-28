@@ -10,44 +10,44 @@
   "artworks": [
     {
       "artwork_id": "1",
-      "artwork_image": "img/bunny-bow.jpg",
-      "artwork_title": "Spoliarium",
-      "artist_name": "Juan Luna",
-      "artwork_year": "1884",
-      "artwork_tags": [
-        "Classic",
-        "Painting",
-        "Philippines"
-      ],
-      "art_type": "Oil on canvas",
-      "hero_image": "img/bunny-bow.jpg",
-      "what_we_see": "Two lifeless gladiators are dragged across a dim, cavernous arena floor by Roman soldiers, while onlookers react in the shadows. The scene is heavy with somber, earthen tones and dramatic light.",
-      "our_interpretation": "Many Filipino historians read the painting as an allegory for colonial suffering: the gladiators standing in for the Filipino people, exploited and discarded under foreign rule.",
-      "why_we_chose_it": "Spoliarium is one of the most recognized Filipino artworks in history and a natural starting point for a trail celebrating art with deep cultural roots.",
-      "personal_analysis": "What strikes us most is the restraint in the color palette against the violence of the subject. It asks the viewer to sit with discomfort rather than look away, which feels like the whole point."
-    },
-    {
-      "artwork_id": "2",
-      "artwork_image": "img/lab-sunset.jpg",
-      "artwork_title": "Kanlungan",
-      "artist_name": "Marisol Aquino",
-      "artwork_year": "2019",
+      "artwork_image": "img/ayen's-little-town.HEIC",
+      "artwork_title": "Ayen's Little Town",
+      "artist_name": "Little Town",
+      "artwork_year": "2020",
       "artwork_tags": [
         "Painting",
         "Modern"
       ],
-      "art_type": "Acrylic on canvas",
+      "art_type": "Ayen Quias",
+      "hero_image": "img/ayen's-little-town.HEIC",
+      "what_we_see": "The sculpture is composed of small wooden houses stacked together that are sticking out in different angles. The individual houses vary in colors such as teal, orange, yellow, pink, blue, mint green, purple, brown, gray and white while the roof of each home is painted in neutral colors such as black, brown and beige. The whole structure rests on thin metal rod supports mounted to a wooden rectangular base, which bears an engraved/carved signature.",
+      "personal_analysis": "The sculpture is made from the repetition of a single form, a small rectangular house module varied in size, roofline and tilt. The differences within similar subjects create rhythm while preventing monotony. Color helps activate that rhythm. The artist distributes bright contrasting hues like teal, magenta, orange, yellow and mint across the individual houses, which guides the eye and creates a sense of movement throughout the piece. The sculpture is balanced in a way that feels unstable. The large grouping of houses extends outward from a narrow central column and is supported only by thin metal rods rather than a solid base. This contrast between the heavy appearance of the wooden forms and the thinness of the supports beneath them makes the whole structure feel delicate and as if it could fall. There is no single focal point, so the arrangement emphasizes density and accumulation.",
+      "our_interpretation": "The sculpture evokes the feeling of a densely packed neighbourhood, a community that was not created with a plan but rather built over time and on a whim, which is why the houses are scattered on the hillside. The whole sculpture being held by thin rods instead of a solid base suggests the fragility and instability of the community, hinting at the vulnerability of its situation. It feels like a nod to the neighbourhoods in the Philippines, how some communities often found themselves jammed together in an attempt to make do with what they have, even if it means enduring cramped conditions just to have a place to stay. As Filipinos are commonly described to be resilient, this artwork becomes an extension of the struggles such communities face in their day-to-day life. The fragile base shows how uncertain life can be in these communities, while the bright colors and lively arrangement show their energy and togetherness.",
+      "our_judgement": "The sculpture was able to invoke the feeling of familiarity from the get go.Its composition is strikingly similar to neighbourhoods found in rural cities, transforming a common sight into a visually thoughtful form that pushes the audience to reflect on the social reality it implies. The tightly packed houses feel almost suffocating, yet the vibrant colors suggest otherwise. It used the right palette to highlight the contrast between harsh reality and community resilience. It takes a lot of creativity and skill to make a piece look intentionally unbalanced, and the thin metal rods show the technical ability needed to balance it on an unstable pole. It is impactful because it shifts the focus from hardship to the adaptability and resourcefulness of informal communities."
+    },
+    {
+      "artwork_id": "2",
+      "artwork_image": "img/lab-sunset.jpg",
+      "artwork_title": "Ceiling Murals of the Apostles",
+      "artist_name": "Unknown",
+      "artwork_year": "2019",
+      "artwork_tags": [
+        "Painting",
+        "Modern",
+        "Portrait"
+      ],
+      "art_type": "Religious Ceiling Mural",
       "hero_image": "img/lab-sunset.jpg",
-      "what_we_see": "Warm interior light spills across a modest home, rendered in loose, confident brushwork.",
-      "our_interpretation": "The piece reads as a meditation on shelter and belonging, themes that resonate across Santa Rosa's growing neighborhoods.",
-      "why_we_chose_it": "Its local subject matter and accessible style make it a favorite stop on the trail.",
-      "personal_analysis": "There is a tenderness in how ordinary rooms are painted here, as if the artist wanted us to notice what we usually overlook."
+      "what_we_see": "Painted panels on the church’s curved ceiling. Each one shows an apostle’s face with written names above it(San Judas Tadeo, San Mateo and San Simon), framed in gold arches. Painted in realistic form. ",
+      "personal_analysis": "The colors are simple browns and golds, matching the wood carvings around them. The panels are in the same shape. The apostles are not drawn in a fancy or detailed way, they’re plain and labeled. ",
+      "our_interpretation": "This is an old-school teaching tool for people who go to the churches to recognise and know the apostles, by using arts and displaying them in every church. San Judas Tadeo is known as the patron saint of the desperate. San Mateo symbolizes transformation and forgiveness, he was a tax collector before becoming a disciple. And San Simon is linked with dedication to his faith. With these three all together, It gives people a quiet reassurance that transformation, dedication, and faith are all watching over the people. ",
+      "our_judgement": "This kind of art makes the church more sacred and to quietly teach. The fade and cracks in the ceiling and painting, can show how old the church is and the painting. Displaying the painting to the ceiling makes it more eye-catching, instead of putting it on the walls, putting it in the ceiling makes it more reasonable because people look up when they pray so once they pray one of the first things they will see are the paintings."
     },
     {
       "artwork_id": "3",
       "artwork_image": "img/schnauzer-begging.jpg",
-      "artwork_title": "Tanawin",
-      "artist_name": "Domingo Rivas",
+      "artwork_title": "The Choosing",
+      "artist_name": "Buhay Mendoza",
       "artwork_year": "2021",
       "artwork_tags": [
         "Painting",
@@ -56,64 +56,118 @@
       ],
       "art_type": "Oil on canvas",
       "hero_image": "img/schnauzer-begging.jpg",
-      "what_we_see": "Overlapping geometric shapes suggest rooftops and power lines dissolving into abstraction.",
-      "our_interpretation": "A way of seeing the everyday city as something worth slowing down for.",
-      "why_we_chose_it": "It bridges realism and abstraction in a way that sparked a lot of discussion in our group.",
-      "personal_analysis": "The more we looked, the more the 'skyline' resembled a heartbeat line — deliberate or not, we loved that reading."
+      "what_we_see": "The painting centers on a black and white figure of a boy smiling with a red clown nose, wearing a Barong Tagalog, and drinking from a cup while sitting on a small stool. On his head sits a bright and smiling hamburger. Two skin-toned hands extend from the bottom corners, pointing directly at him. He is surrounded by shallow water filled with colorful items like a white paper boat, red apples, a yellow rubber duck, a compass, and a cardboard box. The blue sky above him features a Rubik’s cube, a winged melting clock, a snow globe, and flying birds. ",
+      "personal_analysis": "The boy serves as the main focal point, created through a sharp contrast between his monochromatic grayscale body and the vibrant and highly saturated colors of the surrounding environment. The composition relies on formal balance, placing the boy in the center while two large hands at the bottom form diagonal implied lines that point directly toward him. Smooth shading and value create realistic implied textures on his Barong Tagalog and the surrounding objects. The artist plays with exaggerated scale by making the hands and hamburger hat unusually large, while strategically distributing colorful floating objects across the canvas to establish rhythm and visual movement before drawing the viewer’s attention back to the central subject. ",
+      "our_interpretation": "The artwork reflects on life's decisions, showing how every choice and ambition carries a corresponding consequence and responsibility. The painting creates a bittersweet mood, capturing a child holding onto joy and imagination while stepping up to face the realities of life. Although dressed in a formal Barong Tagalog that represents societal expectations, the grayscale boy wears a red clown nose and a smiling hamburger hat as a playful coping mechanism to face these burdens with courage. The two oversized hands pointing at him emphasize the constant societal judgement and accountability tied to one's actions. Floating symbols like the melting clock, submerged compass, and Rubik's cube signify lost time, uncertain paths, and the complex choices of growing up. ",
+      "our_judgement": "The painting is good because it skillfully blends to deliver a powerful message about responsibility and choice. Its composition and smooth execution make it both visually engaging and emotionally impactful, effective in provoking deep thought from the viewer."
     },
     {
       "artwork_id": "4",
-      "artwork_image": "img/chihuahua-smile.jpg",
-      "artwork_title": "Ina",
-      "artist_name": "Consuelo Mendiola",
+      "artwork_image": "img/can-i-take-your-order-pls.HEIC",
+      "artwork_title": "CAN I TAKE YOUR ORDER PLEASE?",
+      "artist_name": " Buhay Mendoza",
       "artwork_year": "1998",
-      "artwork_tags": [
+      "artwork_tags": [ 
+        "Painting",
         "Classic",
         "Portrait",
         "Philippines"
       ],
       "art_type": "Oil on canvas",
-      "hero_image": "img/chihuahua-smile.jpg",
-      "what_we_see": "A seated woman in muted traditional dress, gazing just past the viewer, hands folded in her lap.",
-      "our_interpretation": "A quiet study of motherhood and patience, painted with unusual tenderness for its era.",
-      "why_we_chose_it": "It's one of the few portraits in the trail painted by a woman artist, and it shows.",
-      "personal_analysis": "The gaze never quite meets yours, which somehow makes the portrait feel more honest, not less."
+      "hero_image": "img/can-i-take-your-order-pls.HEIC",
+      "what_we_see": "The painting features a portrait of a humanoid figure. Its head is shaped like a cassette tape with a yellow and red casing labeled “TDK” and “C90” along the bottom front of the casing. The cassette has two large cartoon eyes, and its glasses are made from teal magnetic tape film spilling out from inside the cassette. On top of the cassette rests a small burger topped with a tiny red cap. The figure's body appears to be a connected segmented tube, with red strands of magnetic tape spilling out and looping down toward the shoulders. The figure wears a red and gray collared work shirt/jacket with a small red-and-yellow striped shoulder patch and a tiny embroidered logo of a mascot on the chest. The background is a simple landscape: blue sky with two clouds, distant purple hills, a yellow/green striped field, and two small dark trees.",
+      "personal_analysis": "The painting is defined by contrasting lines. Harsh geometric lines form the cassette's rectangular shape and internal divisions, while soft organic strokes define the rest of the figure, such as the spilling magnetic tape and the folds of the shirt. This contrast carries over into shape. The head is composed of geometric forms like the rectangular cassette and circular eyes and glasses, while the body is rendered with softer organic forms that highlight the duality between mechanical and human. The artist also uses warm cool color contrast, where the warm orange red shirt and tan bun stand out against the cool blue sky and teal glasses, which separates the figure from the background. Texture varies from the smooth glossy surface of the cassette to the woven fabric of the shirt and the soft matte bun. The centered and symmetrical composition creates a stable portrait-like presence despite its surreal subject, with emphasis placed on the cartoonish eyes as the only lifelike feature. Finally, the flat minimal background provides negative space that isolates the figure and allows it to dominate the frame.",
+      "our_interpretation": "The painting can be read as a surrealist image of a fast food worker. From the Yum burger that is placed on top of its head to the recognizable Jollibee uniform and logo, the figure is supposed to be an embodiment of an employee in the fast food industry. By turning the head into a cassette tape, it raises different interpretations that bear the same essence. It goes to show how workers in the customer service industry are often seen as replaceable, as every day they repeat the same routine, say the same things to please the masses. In this artwork however, the cassette tape has its magnetic tape spilling out, suggesting exhaustion and burnout. While the bright colors and cartoonish eyes give it a playful look at first, underneath it expresses tiredness and the loss of individuality that comes with repetitive service work.",
+      "our_judgement": "The artwork was able to successfully express the social message it was trying to convey by simply making the right choice in choosing what object to use in delivering the metaphor. The usage of the cassette tape as a narrative device was smart and original as it is usually an object that is used to record and playback audio. While being an unusual comparison, putting the two together undoubtedly showcases the similarities.  What makes this effective is the playful style that was chosen in creating the artwork. At first glance, it pulls the viewer in with its bright colors and, yet the small details unveil the truth piece by piece."
     },
     {
       "artwork_id": "5",
       "artwork_image": "img/sleepy-cartoon.jpg",
-      "artwork_title": "Anak ng Lupa",
-      "artist_name": "Reynaldo Basco",
+      "artwork_title": "St. Rose of Lima",
+      "artist_name": "Unknown",
       "artwork_year": "2016",
       "artwork_tags": [
+        "Painting",
         "Portrait",
         "Modern",
         "Philippines"
       ],
-      "art_type": "Charcoal on paper",
+      "art_type": "Oil in Cnavas",
       "hero_image": "img/sleepy-cartoon.jpg",
-      "what_we_see": "A weathered farmer's face rendered in bold, confident charcoal strokes, half in shadow.",
-      "our_interpretation": "A tribute to the agricultural roots still visible on Santa Rosa's outskirts, even as the city grows upward.",
-      "why_we_chose_it": "It grounds the trail in the people who worked this land long before the malls arrived.",
-      "personal_analysis": "The shadow half of the face is the part we kept coming back to — it feels like it's hiding a whole life story."
+      "what_we_see": "A large framed bust portrait of St. Rose of Lima wearing a black veil, white wimple, and a crown of red roses. The background shows a pastel sky with two churches, one resembling the local Santa Rosa church bell tower, the other a gilded retablo. She is the patron saint of florists, gardeners, embroiderers and a co-patroness of the Philippines. ",
+      "personal_analysis": "he realistic painting style of the portrait includes symbolic elements, such as the churches behind her and the red rose crown. With the two churches in her back, showing the devotion and fateful to the church and the patroness. With the rose crown around her head might be showing how she is respected and loved by the churches.",
+      "our_interpretation": "Since St. Rose of Lima is Santa Rosa’s patroness, the portrait shows local devotion and identity, naming her after an architecture, making her feel like a local, not just a distant historical saint. The rose crown around her head isn’t just a decoration, it represents her name “Rose” also it speaks about the beauty and suffering she has been through. According to the story, the spike under her crown signifies that she hides her suffering and devotion to others.",
+      "our_judgement": " It is a successful piece of devotional/community art that is both technically sound and emotionally approachable, despite having a reverential rather than experimental goal. Its strength is derived less from universal artistic innovation and more from local meaning."
     },
     {
       "artwork_id": "6",
       "artwork_image": "img/bullterrier-closeup.jpg",
-      "artwork_title": "Paglipad",
+      "artwork_title": "The Fish Vendor",
+      "artist_name": "Buhay Mendoza",
+      "artwork_year": "2020",
+      "artwork_tags": [
+        "Painting",
+        "Modern"
+      ],
+      "art_type": "Oil on Canvas",
+      "hero_image": "img/bullterrier-closeup.jpg",
+      "what_we_see": "This painting shows a woman standing in the center against a plain black background. She wears a golden-yellow Filipiniana blouse, a pearl necklace and earrings, and a small tiara placed across the ocean scenery on her headpiece. On her head rests an elaborate crab headpiece with a blue face and an ocean scene with fishermen painted across its shell, with large crab claws decorated with vibrant folk-art patterns on both sides. In front of her, she holds a brown woven basket filled with silver-gray fish. In the top right corner, a small red full moon floats in the dark background.",
+      "personal_analysis": "The artist uses central symmetry and sharp contrast to highlight the main subject. The bright golden-yellow dress and blue headpiece stand out against the solid black background, drawing immediate attention to the figure. Smooth textures on her skin contrast with the detailed patterns on the crab claws and the woven basket. Balanced warm and cool colors guide the viewer’s eyes naturally from her face up to the intricate ocean scene and tiara on her crab headpiece.",
+      "our_interpretation": "The artwork honors the dignity, hard work, and cultural heritage of everyday Filipino workers. By dressing the woman in a traditional Filipiniana blouse, pearls, and a tiara, the painting treats a humble street vendor like royalty. The elaborate crab headpiece containing an ocean scene with fishermen symbolizes how her community’s coastal livelihood is deeply tied to her identity. Set against a dark background with a red moon, her calm expression and vibrant folk-art patterns create a proud and respectful tone that celebrates local tradition and honest labor.",
+      "our_judgement": "The artist successfully creates a powerful piece by elevating a simple fish vendor into a regal, through details and clean composition. The creative use of the crab headpiece as a canvas for coastal life makes the artwork both visually captivating and culturally resonant."
+    },
+    {
+      "artwork_id": "7",
+      "artwork_image": "img/the-foundation.HEIC",
+      "artwork_title": "THE FOUNDATION",
+      "artist_name": "Buhay Mendoza",
+      "artwork_year": "1884",
+      "artwork_tags": [
+        "Classic",
+        "Painting",
+        "Philippines"
+      ],
+      "art_type": "Oil on canvas",
+      "hero_image": "img/the-foundation.HEIC",
+      "what_we_see": "The painting features a young man wearing a traditional woven hat called sakalot, a short-sleeved dress shirt, dark blue shorts and black shoes where one of which is drenched in water. He is standing on shallow water with his right hand holding a pole and the other is freely extended outwards, his palms facing forward. Positioned directly between his legs and resting on the sand at the water's edge is a large turtle with a dark brown dome-shaped shell, a textured yellowish-brown head, and thick, scaly dark legs with black claws, its head turned toward the right. Silver fishes are scattered around the area; some are still in the shallow sea while some are laying on the sand. Behind the two central figures, there are a group of people that are crossing the water carrying lanterns and a long wooden pole. In the distant background, a white colonial-style stone church stands with a tiered bell tower and the sky above it shows a sunset with an orange sun low over the horizon and blue-toned clouds streaking across a dark blue sky.",
+      "personal_analysis": "The artist mainly uses light and color to organize the composition. He used the warm and golden light from the sunset to highlight the central subject of the painting, the man and the turtle while the group of people in the water are shadowed with darker tones of blue. The usage of this color temperature acts as a divider between the two different areas. With the topic of dividers at hand, the man's hand acts as a diagonal visual barrier. Furthermore, the aforementioned division is supported by the shape wherein the man and the turtle in the foreground are rendered as solid, well-defined forms, whereas the crowd in the background is depicted as smaller, indistinct silhouettes. The naturalistic handling of texture is evident in the detailed rendering of the turtle's ridged carapace, the woven texture of the salakot, and the reflective quality of the wet sand. The vertical church tower on the right offsets the horizontal shoreline and the boy's pose, keeping the composition stable. The boy's raised hand and gaze remain the focal point due to his bright lighting and central placement.",
+      "our_interpretation": "The painting tells a story of defiance. The man is wearing an outfit similar to the people behind him, which suggests they are his own community. His outstretched hand shows he is standing between the turtle and his people not only physically but also morally to protect the animal from harm. The church behind the crowd indicates they may be connected to religion, their actions influenced by a specific order or belief. The warm, golden light on the man and the turtle contrasts with the cooler, shadowed crowd, reinforcing the idea that he represents hope, compassion and a more enlightened relationship with nature, while the group behind him represents older customs and collective will.",
+      "our_judgement": "The painting is highly memorable, the depiction of the relationship between man and animal is easily recognisable. The stance of the man was enough to provide contexts of why there was a crowd surging up from the sea. However, the title of the piece in itself felt quite disconnected to the artwork, as though there is still some context missing that wasn't provided enough by the elements in the painting." 
+    },
+    {
+      "artwork_id": "8",
+      "artwork_image": "img/bullterrier-closeup.jpg",
+      "artwork_title": "Makinilya",
       "artist_name": "Unknown",
       "artwork_year": "2020",
       "artwork_tags": [
         "Painting",
         "Modern"
       ],
-      "art_type": "Mixed media on canvas",
+      "art_type": "Industrial Design / Applied Art",
       "hero_image": "img/bullterrier-closeup.jpg",
-      "what_we_see": "Layered paper cutouts of birds mid-flight, collaged over a soft gradient sky.",
-      "our_interpretation": "A hopeful piece about movement and change, fitting for a city in transition.",
-      "why_we_chose_it": "Its mixed-media texture stands out from the mostly flat paintings elsewhere on the trail.",
-      "personal_analysis": "We like that it doesn't try to be photorealistic — the cut edges of the paper are part of the charm."
-    }
+      "what_we_see": "The object is a vintage manual mechanical typewriter resting on top of a wooden desk. It features a tiered QWERTY keyboard just like in today's keyboard but with circular, white-lettered black keys housed inside an angled metal chassis. At the upper section of the machine, an open mechanism reveals the typebars and ribbon spools, followed by a long horizontal rubber platen roller and carriage assembly. Accompanied by an informational museum card placed behind it, the metal body shows significant signs of age, including peeling paint, scratches, and dust.",
+      "personal_analysis": "The rust, worn keys, and yellowed nameplate attest to decades of use, turning a common office tool into a relic of local government history. Its value is purely material and evidentiary. The fades of other letters also shows how it is important and well used by Romea Moran.",
+      "our_interpretation": "Romeo Moran's decades of municipal record-keeping and the typewriters' placement in a heritage display demonstrate the community's appreciation for maintaining an administrative history. Keeping it intact on how it looks like before, without enhancing anything shows how they want to preserve how it looks when it has been left.",
+      "our_judgement": "In my judgment, this artwork is successful because of how it connects us to the past and evokes nostalgia in an era of rapid technological advancement. In an ever-changing world where older tools are quickly phased out in favor of newer innovations, displaying this object provides a meaningful opportunity to understand early trades, remember how past generations lived and worked, and reflect on the evolution of society. Beyond its historical significance, the piece succeeds as an example of applied art due to its exceptional mechanical durability and practical design."
+    },
+    {
+      "artwork_id": "9",
+      "artwork_image": "img/bullterrier-closeup.jpg",
+      "artwork_title": "Vigan",
+      "artist_name": "Jovan Benito",
+      "artwork_year": "2020",
+      "artwork_tags": [
+        "Painting",
+        "Modern"
+      ],
+      "art_type": "Oil on Canvas",
+      "hero_image": "img/bullterrier-closeup.jpg",
+      "what_we_see": "The painting depicts a lively, nostalgic street scene along Calle Crisologo in Vigan under a glowing sun and historic colonial architecture. The cobblestone street and balconies are filled with locals, vendors, and children wearing traditional Filipino clothing. In the foreground and along the street, vendors carry colorful balloons, baskets, and taho buckets, while a boy plays guitar to serenade a girl amidst families and couples. A horse-drawn carriage sits further down the central street, all painted in a warm, vivid color palette of yellows, reds, blues, and oranges.",
+      "personal_analysis": "The warm palette of bright yellows, oranges, and reds illuminates the scene with a joyful, festive glow. The artist contrasts structured geometric buildings with soft, rounded characters, featuring her signature round-eyed people that give her figures a range of emotions. Repeated patterns across the windows, balconies, and crowded streets create visual rhythm and lively movement throughout the composition.",
+      "our_interpretation": "The artwork expresses a deep sense of nostalgia and love for traditional Filipino culture and community life. Through everyday scenes like street vendors and romantic serenades, the painting highlights the simple joys and warmth of togetherness under the historic colonial architecture of Calle Crisologo.",
+      "our_judgement": "This is successful artwork because it skillfully blends techniques with a warm, lively composition that captures the charm and warmth of Filipino heritage."
+    },
   ],
   "about": {
     "group_introduction": "We are a group of students documenting the art hiding in plain sight around Santa Rosa, Laguna — from museum-grade works to pieces made by our own neighbors.",
