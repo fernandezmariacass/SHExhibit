@@ -258,66 +258,30 @@
     "team_members": [
       {
         "name": "Fernandez, Maria Cassandra M.",
-        "role": "",
-        "photo": "",
-        "socials": {
-          "gmail": "",
-          "facebook": "",
-          "linkedin": ""
-        }
+        "photo": "img/MF.jpg"
       },
       {
         "name": "Francisco, Athaliah L.",
-        "role": "",
-        "photo": "",
-        "socials": {
-          "gmail": "",
-          "facebook": "",
-          "linkedin": ""
-        }
+        "photo: "",
       },
       {
         "name": "Gregorio, Alezandra Yvon Anne L.",
-        "role": "",
-        "photo": "",
-        "socials": {
-          "gmail": "",
-          "facebook": "",
-          "linkedin": ""
-        }
+        "photo: "",
       },
       {
         "name": "Mendoza, Juliana Paula B.",
-        "role": "",
-        "photo": "",
-        "socials": {
-          "gmail": "",
-          "facebook": "",
-          "linkedin": ""
-        }
+        "photo": "img/JM.jpg",
       },
       {
         "name": "Molato, Eliyah G.",
-        "role": "",
-        "photo": "",
-        "socials": {
-          "gmail": "",
-          "facebook": "",
-          "linkedin": ""
-        }
+        "photo": "img/EM.jpg",
       },
       {
         "name": "Parojinog, Alexandria S.",
-        "role": "",
-        "photo": "",
-        "socials": {
-          "gmail": "",
-          "facebook": "",
-          "linkedin": ""
-        }
+        "photo": "img/AP.jpg",
       }
     ],
-    "course_section": "Course Code — Section",
+    "course_section": "GEED 006 — BSIT 3-2",
     "why_we_created_statement": "We built this exhibit because so much local art goes unlabeled and unexplained. We wanted a place where a painting on a barangay hall wall gets the same care and context as something hanging in a museum."
   }
 }
