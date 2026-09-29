@@ -188,9 +188,10 @@
       W=w;H=h;cv.width=w*d;cv.height=h*d;cx.setTransform(d,0,0,d,0,0);
       if(sn)cx.drawImage(sn,0,0,sn.width/d,sn.height/d);else if(!init)scene(true);
     }
+    const DK=()=>document.documentElement.dataset.theme==='dark'; /* dark mode: denser, more opaque bristles */
     function brush(c,size,thick){
       const n=Math.round(size/2.4),[r,g,b]=c.match(/\w\w/g).map(h=>parseInt(h,16));
-      return{size,bs:Array.from({length:n},(_,i)=>{const j=(Math.random()-.5)*34;return{o:i/(n-1||1)-.5+(Math.random()-.5)*.03,w:(.8+Math.random()*1.8)*thick,a:.55+Math.random()*.4,p:Math.random()*9,c:`rgb(${r+j|0},${g+j|0},${b+j|0})`}})};
+      return{size,bs:Array.from({length:n},(_,i)=>{const j=(Math.random()-.5)*34;return{o:i/(n-1||1)-.5+(Math.random()-.5)*.03,w:(.8+Math.random()*1.8)*thick,a:(DK()?.72:.55)+Math.random()*(DK()?.26:.4),p:Math.random()*9,c:`rgb(${r+j|0},${g+j|0},${b+j|0})`}})};
     }
     function seg(B,x0,y0,x1,y1,t){
       const dx=x1-x0,dy=y1-y0,l=Math.hypot(dx,dy);if(!l)return;
@@ -226,6 +227,8 @@
     $$('.sw button').forEach(b=>b.onclick=()=>{col=b.dataset.c;$$('.sw button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
     $('#reset').onclick=()=>{run++;cx.clearRect(0,0,W,H);dirty=false;$('#hint').classList.remove('gone');scene(RM)};
     fit(true);scene(RM);new ResizeObserver(()=>fit()).observe(hero);
+    /* called by index.html when the theme flips: swap the backdrop palette, repaint it unless the visitor has drawn */
+    window.__repaint=cols=>{PALETTE.splice(0,PALETTE.length,...cols);if(!dirty){run++;cx.clearRect(0,0,W,H);scene(true)}};
 
     /* ===== Concept 3: Come Closer ===== */
     const lens=$('#lens'),lw=$('#lWrap'),ls=$('#lStage'),lb=$('#lBlocks'),ll=$('#lLens');
