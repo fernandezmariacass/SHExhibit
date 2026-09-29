@@ -450,7 +450,11 @@ html{ scroll-behavior: smooth; }
   border-radius: 999px;
 }
 .modal-body h3{ font-size: 1rem; margin-top: 20px; margin-bottom: 6px; color: var(--accent); }
-.modal-body p{ margin: 0; color: var(--text); }
+.modal-body p{ 
+  margin: 0; 
+  color: var(--text); 
+  text-align: justify; 
+}
 
 /* ---------------------------------------------------------------------
    MOBILE NAVIGATION
