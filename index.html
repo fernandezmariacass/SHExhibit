@@ -31,7 +31,7 @@ nav a:hover::after{transform:scaleX(1)}
 #burger{display:none}
 
 /* hero */
-.hero{--gesso:#fff5f7;--ink:#4a3a40;--mute:#8f7a82;--accent:#d9779a;--line:rgba(74,58,64,.14);color:var(--ink);background:var(--gesso);overflow:hidden;isolation:isolate;min-height:100svh;padding:110px var(--pad) 150px;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,5vw,80px);align-items:center;position:relative}
+.hero{--gesso:#fff5f7;--ink:#4a3a40;--mute:#8f7a82;--accent:#d9779a;--line:rgba(74,58,64,.14);--fm:#fffdfb;--fl:#f6c9d3;--fs:0 30px 60px -28px rgba(120,70,90,.38),0 6px 18px -8px rgba(120,70,90,.2);color:var(--ink);background:var(--gesso);overflow:hidden;isolation:isolate;min-height:100svh;padding:110px var(--pad) 150px;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,5vw,80px);align-items:center;position:relative;transition:background .5s,color .5s}
 .hero h1{font-size:1rem}
 .big{display:block;overflow:hidden;font-size:clamp(3rem,12.5vw,8rem);line-height:.95;letter-spacing:-.03em;padding-bottom:.08em}
 .big span{display:block;transform:translateY(105%);animation:up 1.2s .2s cubic-bezier(.2,.8,.2,1) forwards}
@@ -41,11 +41,12 @@ nav a:hover::after{transform:scaleX(1)}
 .tag{max-width:46ch;color:var(--mute);margin:22px 0 30px;opacity:0;animation:fade 1s 1.4s forwards}
 .cta{display:inline-flex;gap:12px;align-items:center;padding:14px 28px;border:1px solid var(--ink);border-radius:99px;font-weight:500;transition:.35s;opacity:0;animation:fade 1s 1.6s forwards}
 .cta:hover{background:var(--accent);border-color:var(--accent);color:#fff;gap:20px}
-.frame{position:relative;justify-self:center;width:min(100%,420px);aspect-ratio:3/4.3;border-radius:999px 999px 14px 14px;overflow:hidden;background:var(--card)}
-.frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);animation:settle 3s .4s cubic-bezier(.2,.8,.2,1) forwards}
-.frame::before,.frame::after{content:"";position:absolute;top:0;bottom:0;width:51%;background:var(--accent);z-index:2;animation:part 1.5s .5s cubic-bezier(.7,0,.2,1) forwards}
-.frame::before{left:0}.frame::after{right:0;--dir:1;background:color-mix(in srgb,var(--accent) 82%,#fff)}
-.frame::before{--dir:-1}
+.frame{position:relative;justify-self:center;width:min(100%,400px);padding:14px;background:var(--fm);border:1px solid var(--fl);border-radius:999px 999px 8px 8px;box-shadow:var(--fs);transition:background .5s,border-color .5s}
+.frame::before{content:"";position:absolute;inset:5px;border:1px solid var(--fl);border-radius:999px 999px 4px 4px;opacity:.55;pointer-events:none}
+.pane{position:relative;aspect-ratio:3/4.15;border-radius:999px 999px 2px 2px;overflow:hidden;background:var(--card)}
+.pane img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.15);animation:settle 3s .4s cubic-bezier(.2,.8,.2,1) forwards}
+.pane::before,.pane::after{content:"";position:absolute;top:0;bottom:0;width:51%;background:var(--accent);z-index:2;animation:part 1.5s .5s cubic-bezier(.7,0,.2,1) forwards}
+.pane::before{left:0;--dir:-1}.pane::after{right:0;--dir:1;background:color-mix(in srgb,var(--accent) 82%,#fff)}
 .badge{position:absolute;right:calc(var(--pad) - 10px);bottom:70px;width:110px;animation:spin 24s linear infinite;color:var(--mute);font:500 9.5px var(--sans);letter-spacing:.18em;fill:currentColor}
 .mq{position:absolute;left:0;right:0;bottom:0;overflow:hidden;border-block:1px solid var(--line);padding:12px 0;white-space:nowrap}
 .mq div{display:inline-block;animation:mq 45s linear infinite;font:italic 300 1.05rem var(--serif);color:var(--mute)}
@@ -53,7 +54,6 @@ nav a:hover::after{transform:scaleX(1)}
 @keyframes up{to{transform:none}}@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes part{to{transform:translateX(calc(var(--dir,1)*102%))}}@keyframes settle{to{transform:scale(1)}}
 @keyframes spin{to{transform:rotate(360deg)}}@keyframes mq{to{transform:translateX(-50%)}}
-.frame::after{--dir:1}
 
 /* gallery */
 .gal{padding:110px 0 90px}
@@ -164,27 +164,33 @@ footer{padding:36px var(--pad);border-top:1px solid var(--line);color:var(--mute
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .big span,.of,.sub,.tag,.cta,.rv{opacity:1;transform:none}.frame::before,.frame::after{display:none}.frame img{transform:none}
+  .big span,.of,.sub,.tag,.cta,.rv{opacity:1;transform:none}.pane::before,.pane::after{display:none}.pane img{transform:none}
 }
 
 /* ===== Concept 1: Wet Paint ===== */
 #paint{position:absolute;inset:0;width:100%;height:100%;z-index:0;touch-action:none;cursor:crosshair}
 .hero-copy{position:relative;z-index:2;pointer-events:none}
-.hero-copy .cta{pointer-events:auto;background:rgba(255,245,247,.9)}
+.hero-copy .cta{pointer-events:auto;background:color-mix(in srgb,var(--gesso) 90%,transparent)}
 .hero-copy .cta:hover{background:var(--accent)}
-.hero .eyebrow,.hero .big,.hero .of,.hero .sub,.hero .tag{text-shadow:0 0 .3em #fff5f7,0 0 .6em #fff5f7,0 0 1.2em rgba(255,245,247,.8)}
+.hero .eyebrow,.hero .big,.hero .of,.hero .sub,.hero .tag{text-shadow:0 0 .3em var(--gesso),0 0 .6em var(--gesso),0 0 1.2em color-mix(in srgb,var(--gesso) 80%,transparent)}
 .hero .tag{color:var(--ink)}
 .hero .frame,.hero .badge{z-index:2;pointer-events:none}
-.mq{z-index:3;background:#fff5f7;touch-action:pan-y}
-.tools{position:absolute;left:0;right:0;bottom:46px;z-index:3;display:flex;align-items:center;gap:18px;padding:10px var(--pad);background:color-mix(in srgb,#fff5f7 88%,transparent);backdrop-filter:blur(8px);border-block:1px solid var(--line);touch-action:pan-y}
+.mq{z-index:3;background:var(--gesso);touch-action:pan-y}
+.tools{position:absolute;left:0;right:0;bottom:46px;z-index:3;display:flex;align-items:center;gap:18px;padding:10px var(--pad);background:color-mix(in srgb,var(--gesso) 88%,transparent);backdrop-filter:blur(8px);border-block:1px solid var(--line);touch-action:pan-y}
 .sw{display:flex;gap:10px}
-.sw button{width:30px;height:30px;padding:0;border-radius:50%;border:2px solid #fff5f7;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.5),transparent 45%),var(--c);box-shadow:0 0 0 1px var(--line);transition:.3s}
+.sw button{width:30px;height:30px;padding:0;border-radius:50%;border:2px solid var(--gesso);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.5),transparent 45%),var(--c);box-shadow:0 0 0 1px var(--line);transition:.3s}
 .sw button:hover{transform:translateY(-3px)}
 .sw button[aria-pressed=true]{box-shadow:0 0 0 2px var(--ink);transform:scale(1.14)}
 .sw button:focus-visible,#reset:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 #reset{margin-left:auto}
 #hint{font-size:.8rem;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;transition:opacity .5s}
 #hint.gone{opacity:0}
+
+
+/* ===== Hero: dark mode ===== */
+html[data-theme=dark] .hero{--gesso:#211a24;--ink:#f8e8ef;--mute:#c9adbd;--accent:#f4a9c3;--line:rgba(248,232,239,.2);--fm:#2b2230;--fl:#6b4f78;--fs:0 30px 60px -24px rgba(0,0,0,.65),0 6px 18px -8px rgba(0,0,0,.5)}
+html[data-theme=dark] #paint{filter:saturate(1.25) contrast(1.1)}
+html[data-theme=dark] .pane img{filter:brightness(.92) contrast(1.03)}
 
 /* ===== gallery additions ===== */
 [hidden]{display:none!important}
@@ -311,7 +317,7 @@ footer{padding:36px var(--pad);border-top:1px solid var(--line);color:var(--mute
 <section id="home" class="hero">
   <canvas id="paint" aria-label="Wet paint canvas. Drag to paint."></canvas>
     <div class="hero-copy" id="heroCopy"></div>
-  <div class="frame"><img id="heroImage" src="" alt=""></div>
+  <div class="frame"><div class="pane"><img id="heroImage" src="" alt=""></div></div>
   <svg class="badge" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath id="badgeText" href="#c"></textPath></text></svg>
   <div class="tools" role="group" aria-label="Paint tools">
     <div class="sw" id="swatches"></div>
