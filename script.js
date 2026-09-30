@@ -1,6 +1,60 @@
 /* SHExhibit — data-driven site controller
    data.json is the single source of truth for artwork/site/team/map content.
 */
+const IMG_TIMEOUT_MS=5000,IMG_MAX_RETRIES=3;
+
+function handleImageLoad(img,placeName,buster){
+  const box=img.parentElement,hero=img.hasAttribute('data-hero');
+  let ph=box.querySelector(':scope > .img-placeholder');
+  if(!ph){
+    ph=document.createElement('div');
+    ph.className='img-placeholder shimmer';
+    ph.setAttribute('role','status');
+    ph.innerHTML='<p class="img-msg"></p><button type="button" class="img-reload pill" hidden>Reload Image</button>';
+    box.appendChild(ph);
+  }
+  const msg=ph.querySelector('.img-msg'),btn=ph.querySelector('.img-reload');
+  btn.onclick=e=>{e.stopPropagation();handleImageLoad(img,placeName,Date.now())};
+  const setState=s=>{
+    box.classList.toggle('img-loading',s==='loading');
+    box.classList.toggle('img-failed',s==='failed');
+    ph.classList.toggle('shimmer',s==='loading');
+    btn.hidden=s!=='failed';
+  };
+  const say=t=>{msg.textContent=t;ph.title=t};
+  const failText=`This image did not load. There is a picture of ${placeName} here.`;
+  const base=img.dataset.src?encodeURI(img.dataset.src):'';
+  if(img._imgAbort)img._imgAbort.abort();
+  clearTimeout(img._imgTimer);
+  const ac=img._imgAbort=new AbortController();
+  return new Promise(resolve=>{
+    let retries=0;
+    ac.signal.addEventListener('abort',()=>{clearTimeout(img._imgTimer);resolve(false)});
+    img.removeAttribute('src');
+    if(!base){setState('failed');say(failText);resolve(false);return}
+    setState('loading');
+    say(hero?`Picture of ${placeName} - Loading gallery view...`:`Image of ${placeName} - Loading...`);
+    const attempt=stamp=>{
+      clearTimeout(img._imgTimer);
+      img._imgTimer=setTimeout(fail,IMG_TIMEOUT_MS);
+      img.src=stamp?`${base}${base.includes('?')?'&':'?'}cb=${stamp}`:base;
+    };
+    const fail=()=>{
+      clearTimeout(img._imgTimer);
+      if(retries<IMG_MAX_RETRIES){retries++;attempt(`${Date.now()}${retries}`);return}
+      setState('failed');say(failText);resolve(false);
+    };
+    img.addEventListener('load',()=>{clearTimeout(img._imgTimer);setState('ok');resolve(true)},{signal:ac.signal});
+    img.addEventListener('error',fail,{signal:ac.signal});
+    const start=()=>attempt(buster);
+    if(img.loading==='lazy'&&'IntersectionObserver' in window){
+      const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){io.disconnect();start()}},{root:box.closest('#rail'),rootMargin:'0px 600px 600px 600px'});
+      io.observe(box);
+      ac.signal.addEventListener('abort',()=>io.disconnect());
+    }else start();
+  });
+}
+
 (async function initSHE(){
   try{
     const response=await fetch('data.json');
@@ -27,8 +81,9 @@
       }
       const heroImage=$('#heroImage');
       if(heroImage){
-        heroImage.src=site.hero_image||'';
         heroImage.alt=site.hero_image_alt||site.name||'';
+        heroImage.dataset.src=site.hero_image||'';
+        handleImageLoad(heroImage,site.hero_image_name||site.hero_image_alt||site.name||'');
       }
       const badgeText=$('#badgeText');
       if(badgeText) badgeText.textContent=site.hero_badge||'';
@@ -46,17 +101,8 @@
     let tag='All',list=A.slice(),cur=0,lastCard=null;
     const rail=$('#rail'),viewer=$('#viewer');
 
-    /* Images: try the path from the data first, then the same name with other extensions, then a placeholder */
-    const EXTS=['.jpg','.jpeg','.png','.HEIC','.heic'];
-    const srcs=a=>{const o=[],add=p=>{if(p&&!o.includes(p))o.push(p)};
-      [a.artwork_image,a.hero_image].forEach(add);
-      [a.artwork_image,a.hero_image].forEach(p=>{if(p){const b=p.replace(/\.[a-z0-9]+$/i,'');EXTS.forEach(x=>add(b+x))}});return o};
-    function loadImg(img,list,sel){
-      const c=list.map(encodeURI),box=img.closest(sel)||img.parentElement;let i=0;
-      img.onerror=()=>{if(++i<c.length)img.src=c[i];else{img.onerror=null;img.removeAttribute('src');box.classList.add('noimg')}};
-      img.removeAttribute('src');box.classList.remove('noimg');img.src=c[0];
-    }
-    const hydrate=r=>$$('img[data-a]',r).forEach(im=>{im.draggable=false;loadImg(im,srcs(A[+im.dataset.a]),'.arch')});
+    const imgOf=a=>a.artwork_image||a.hero_image||'';
+    const hydrate=r=>$$('img[data-a]',r).forEach(im=>{const a=A[+im.dataset.a];im.draggable=false;im.dataset.src=imgOf(a);handleImageLoad(im,a.artwork_title)});
 
     /* Type categories, detected automatically from each artwork's art_type.
        Add a new artwork with a new type and its filter pill appears by itself.
@@ -103,7 +149,7 @@
     function renderRail(){
       list=A.filter(a=>tag==='All'||a._cat===tag);
       $('#count').textContent=(tag==='All'?'':tag+' · ')+`${list.length} ${list.length===1?'work':'works'} on view`;
-      rail.innerHTML=list.map((a,i)=>`<article class="card" data-i="${i}" style="--d:${i*70}ms"><div class="arch" tabindex="0" role="button" aria-label="Open ${esc(a.artwork_title)}"><img data-a="${A.indexOf(a)}" alt="${esc(a.artwork_title)}"><span class="ph">${esc(a.artwork_title)}</span></div><div class="cap"><div><span class="no">${pad(A.indexOf(a)+1)} &middot; ${esc(a._cat)}</span><h3>${esc(a.artwork_title)}</h3><p>${byline(a)}</p><p class="by">${by(a)}</p></div><button class="zoom" type="button" data-i="${i}" title="Zoom / Inspect brushwork" aria-label="Inspect brushwork: ${esc(a.artwork_title)}"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>Zoom</button></div></article>`).join('');
+      rail.innerHTML=list.map((a,i)=>`<article class="card" data-i="${i}" style="--d:${i*70}ms"><div class="arch" tabindex="0" role="button" aria-label="Open ${esc(a.artwork_title)}"><img data-a="${A.indexOf(a)}" alt="${esc(a.artwork_title)}" loading="lazy" decoding="async"></div><div class="cap"><div><span class="no">${pad(A.indexOf(a)+1)} &middot; ${esc(a._cat)}</span><h3>${esc(a.artwork_title)}</h3><p>${byline(a)}</p><p class="by">${by(a)}</p></div><button class="zoom" type="button" data-i="${i}" title="Zoom / Inspect brushwork" aria-label="Inspect brushwork: ${esc(a.artwork_title)}"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>Zoom</button></div></article>`).join('');
       hydrate(rail);rail.scrollLeft=0;prog();if(hangOn)renderHang();
     }
     let down=false,sx=0,sl=0,moved=0;
@@ -121,7 +167,7 @@
     const SECTIONS=[['What We See','what_we_see'],['Personal Analysis','personal_analysis'],['Our Interpretation','our_interpretation'],['Our Judgement','our_judgement']];
     function fill(i){
       const a=list[i];cur=i;
-      loadImg($('#vImg'),srcs(a),'.arch');$('#vImg').alt=a.artwork_title;$('#vPh').textContent=a.artwork_title;
+      const vi=$('#vImg');vi.dataset.src=imgOf(a);vi.alt=a.artwork_title;handleImageLoad(vi,a.artwork_title);
       const type=tidy(a.art_type).toLowerCase()!==a._cat.toLowerCase()?a.art_type:'';
       $('#vTxt').innerHTML=`<p class="eyebrow">${pad(A.indexOf(a)+1)} / ${pad(A.length)}</p><h2 id="vT">${esc(a.artwork_title)}</h2><span class="m-tag">${esc(a._cat)}</span><p class="meta">${[a.artist_name,a.artwork_year,type].filter(Boolean).map(esc).join(' &middot; ')}</p><p class="by">${by(a)}</p>${loc(a)}`+
         SECTIONS.filter(([h,k])=>tidy(a[k])).map(([h,k],n)=>`<section style="animation-delay:${.15+n*.08}s"><h3>${h}</h3><p>${esc(a[k])}</p></section>`).join('');
@@ -171,10 +217,10 @@
     const TM=new Map((ab.team_members||[]).map(m=>[nameParts(m.name||'').key,m]));
     const realLink=(k,v)=>{v=tidy(v);if(!v||v==='#')return'';return k==='gmail'&&v.includes('@')&&!/^(mailto:|https?:)/i.test(v)?'mailto:'+v:v};
     $('#team').innerHTML=MEMBERS.map((m,i)=>{
-      const t=TM.get(m.key)||{},role=tidy(t.role),ini=((m.given[0]||'')+(m.last[0]||'')).toUpperCase();
+      const t=TM.get(m.key)||{},role=tidy(t.role);
       const soc=Object.keys(ICONS).map(k=>{const u=realLink(k,(t.socials||{})[k]);return u?`<a href="${esc(u)}" target="_blank" rel="noopener" aria-label="${esc(m.pretty)} on ${k}"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">${ICONS[k]}</svg></a>`:''}).join('');
-      return `<div class="tm rv" id="${m.id}" tabindex="-1" style="transition-delay:${i%3*90}ms"><div class="arch"><img data-p="${esc(t.photo||'')}" alt="${esc(m.pretty)}"><span class="ph">${esc(ini)}</span></div><h4>${esc(m.pretty)}</h4>${role?`<p>${esc(role)}</p>`:''}<p class="wc">${m.n} write-up${m.n>1?'s':''}</p>${soc?`<div class="soc">${soc}</div>`:''}</div>`}).join('');
-    $$('#team img').forEach(im=>{im.draggable=false;const p=im.dataset.p;if(p)loadImg(im,[p],'.arch');else im.closest('.arch').classList.add('noimg')});
+      return `<div class="tm rv" id="${m.id}" tabindex="-1" style="transition-delay:${i%3*90}ms"><div class="arch"><img data-src="${esc(t.photo||'img/placeholder-avatar.svg')}" alt="${esc(m.pretty)}" loading="lazy" decoding="async"></div><h4>${esc(m.pretty)}</h4>${role?`<p>${esc(role)}</p>`:''}<p class="wc">${m.n} write-up${m.n>1?'s':''}</p>${soc?`<div class="soc">${soc}</div>`:''}</div>`}).join('');
+    $$('#team img').forEach(im=>{im.draggable=false;handleImageLoad(im,im.alt)});
 
     /* ===== Concept 1: Wet Paint ===== */
     const hero=$('#home'),cv=$('#paint'),cx=cv.getContext('2d'),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -230,16 +276,16 @@
     /* ===== Concept 3: Come Closer ===== */
     const lens=$('#lens'),lw=$('#lWrap'),ls=$('#lStage'),lb=$('#lBlocks'),ll=$('#lLens');
     let li=0,lTok=0,lImg=null,lTrig=null,LW=0,LH=0,LZ=2.5,LL=160,lx=0,ly=0,tx=0,ty=0,lAuto=true,lRaf=0,lOff=0;
-    const loadArt=a=>new Promise(res=>{const c=srcs(a).map(encodeURI),im=new Image();let n=0;im.onload=()=>res(im);im.onerror=()=>{if(++n<c.length)im.src=c[n];else res(null)};im.src=c[0]});
+    const lSrc=$('#lSrc');
     function fillLens(i){
       const a=list[i],tok=++lTok;li=i;
       $('#lEye').textContent=`${pad(A.indexOf(a)+1)} / ${pad(A.length)}`;$('#lT').textContent=a.artwork_title;
       $('#lMeta').textContent=[a.artist_name,a.artwork_year,a.art_type].filter(Boolean).join(' · ');$('#lBy').innerHTML=by(a);$('#lLoc').innerHTML=loc(a);$('#lCount').textContent=`${i+1} / ${list.length}`;
-      $('#lPh').textContent=a.artwork_title;ls.className='';ll.classList.remove('on');
-      loadArt(a).then(im=>{
-        if(tok!==lTok)return;lImg=im;
-        if(!im){ls.className='noimg';ls.style.width='min(100%,420px)';ls.style.height='min(60vh,520px)';return}
-        layoutLens();
+      lImg=null;ls.style.width='';ls.style.height='';ll.classList.remove('on');
+      lSrc.dataset.src=imgOf(a);
+      handleImageLoad(lSrc,a.artwork_title).then(ok=>{
+        if(tok!==lTok||!ok)return;
+        lImg=lSrc;layoutLens();
       });
     }
     function layoutLens(){
@@ -286,8 +332,8 @@
     }
     function setAct(i){act=i;wall.classList.toggle('act',i>=0);$$('.hf',wallIn).forEach((f,k)=>f.classList.toggle('on',k===i));showLabel(i)}
     function renderHang(){
-      wallIn.innerHTML=`<div class="plaque"><p class="eyebrow">${tag==='All'?'Featured view':esc(tag)} &middot; ${list.length} ${list.length===1?'work':'works'}</p><h3>The Hang</h3></div>`+list.map((a,i)=>`<div class="hf" data-i="${i}" tabindex="0" role="button" aria-label="${esc(a.artwork_title)}, ${esc(a.artist_name)}. Open details" style="--r:${RT[i%9]}deg;--w:${WD[i%9]};--y:${YO[i%9]}px;--d:${i*110+200}ms"><div class="mat"><img data-a="${A.indexOf(a)}" alt="${esc(a.artwork_title)}"><span class="ph">${esc(a.artwork_title)}</span></div></div>`).join('');
-      $$('img[data-a]',wallIn).forEach(im=>{im.draggable=false;loadImg(im,srcs(A[+im.dataset.a]),'.mat')});
+      wallIn.innerHTML=`<div class="plaque"><p class="eyebrow">${tag==='All'?'Featured view':esc(tag)} &middot; ${list.length} ${list.length===1?'work':'works'}</p><h3>The Hang</h3></div>`+list.map((a,i)=>`<div class="hf" data-i="${i}" tabindex="0" role="button" aria-label="${esc(a.artwork_title)}, ${esc(a.artist_name)}. Open details" style="--r:${RT[i%9]}deg;--w:${WD[i%9]};--y:${YO[i%9]}px;--d:${i*110+200}ms"><div class="mat"><img data-a="${A.indexOf(a)}" alt="${esc(a.artwork_title)}" loading="lazy" decoding="async"></div></div>`).join('');
+      hydrate(wallIn);
       setAct(-1);
     }
     tg.onclick=()=>{
@@ -333,7 +379,7 @@
       const items=artworks.map(art=>{
         const idx=A.indexOf(art);
         return `<button type="button" class="artwork-map-item" data-artwork-id="${esc(art.artwork_id)}" data-artwork-index="${idx}" aria-label="Open details for ${esc(art.artwork_title)}">
-          <span class="artwork-map-thumb"><img alt="${esc(art.artwork_title)}"><span class="ph">Image unavailable</span></span>
+          <span class="artwork-map-thumb"><img alt="${esc(art.artwork_title)}" loading="lazy" decoding="async"></span>
           <span class="artwork-map-item-info"><span class="artwork-map-item-title">${esc(art.artwork_title)}</span>
           <span class="artwork-map-item-by">written by <strong>${esc(art.written_by||'Unknown author')}</strong></span></span>
         </button>`;
@@ -369,7 +415,7 @@
           const popup=e.popup.getElement(); if(!popup)return;
           popup.querySelectorAll('.artwork-map-item').forEach(item=>{
             const idx=Number(item.dataset.artworkIndex),thumb=item.querySelector('.artwork-map-thumb'),img=item.querySelector('img');
-            if(Number.isInteger(idx)&&A[idx]&&img&&thumb){img.draggable=false;loadImg(img,srcs(A[idx]),'.artwork-map-thumb');}
+            if(Number.isInteger(idx)&&A[idx]&&img&&thumb){img.draggable=false;img.dataset.src=imgOf(A[idx]);handleImageLoad(img,A[idx].artwork_title);}
             item.addEventListener('click',function(){
               const art=A.find(a=>String(a.artwork_id)===String(item.dataset.artworkId));
               if(!art)return;
