@@ -344,7 +344,7 @@
     }
   ],
   "about": {
-    "group_introduction": "We are a group of students documenting the art hiding in plain sight around Santa Rosa, Laguna — from museum-grade works to pieces made by our own neighbors.",
+    "group_introduction": "We are a group of students dedicated to documenting the different artworks present in Santa Rosa, Laguna. As Information Technology students, we created this platform to improve our skills while highlighting the local art pieces. Through this space, we invite you to explore our work as we seek to preserve and celebrate our city’s artistic identity.",
     "team_members": [
       {
         "name": "Fernandez, Maria Cassandra M.",
@@ -380,7 +380,7 @@
     "subtitle": "Discovering the Hidden Treasures in Santa Rosa, Laguna",
     "hero_image": "img/santa_rosa_arch.jpg",
     "hero_image_alt": "Santa Rosa Arch, Laguna",
-    "hero_badge": "DISCOVER · SANTA ROSA · LAGUNA · MASTERPIECES ·",
+    "hero_badge": " · DISCOVER · SANTA ROSA · LAGUNA · MASTERPIECES ",
     "hero_variants": [
       {
         "id": "A",
