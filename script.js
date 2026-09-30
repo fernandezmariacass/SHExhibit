@@ -57,6 +57,10 @@ function handleImageLoad(img,placeName,buster){
     const response=await fetch('data.json');
     if(!response.ok) throw new Error(`data.json returned ${response.status}`);
     const DATA=await response.json();
+    const THEME_KEY='shexhibit-theme';
+    const storedTheme=()=>{try{return localStorage.getItem(THEME_KEY)}catch(e){return null}};
+    document.documentElement.setAttribute('data-theme',storedTheme()==='dark'?'dark':'light');
+
     const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
     const A=DATA.artworks,pad=n=>String(n).padStart(2,'0');
 
@@ -101,11 +105,6 @@ function handleImageLoad(img,placeName,buster){
       if(badgeText) badgeText.textContent=site.hero_badge||'';
       const footer=$('#footerText');
       if(footer) footer.textContent=`© ${site.year||new Date().getFullYear()} ${site.name||''} of the South. ${site.footer||''}`;
-      const palette=site.paint_palette||[];
-      const swatches=$('#swatches');
-      if(swatches){
-        swatches.innerHTML=palette.map((p,i)=>`<button style="--c:${esc(p.color)}" data-c="${esc(p.color)}" aria-label="${esc(p.name)}" title="${esc(p.name)}" aria-pressed="${i===palette.length-1}"></button>`).join('');
-      }
     }
 
     const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -236,8 +235,11 @@ function handleImageLoad(img,placeName,buster){
 
     /* ===== Concept 1: Wet Paint ===== */
     const hero=$('#home'),cv=$('#paint'),cx=cv.getContext('2d'),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
-    const PALETTE=(DATA.site&&DATA.site.paint_palette||[]).map(p=>p.color).filter(Boolean);
-    let W=0,H=0,dirty=false,run=0,col=PALETTE[PALETTE.length-1]||'',pd=null;
+    const themeVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+    const readPalette=()=>[themeVar('--bg-pink'),themeVar('--bg-blue'),themeVar('--bg-yellow')];
+    const SW_NAMES=['Pink','Blue','Yellow'];
+    let PALETTE=readPalette(),colIdx=2,col=PALETTE[colIdx];
+    let W=0,H=0,dirty=false,run=0,pd=null;
     function fit(init){
       const r=hero.getBoundingClientRect(),w=Math.round(r.width),h=Math.round(r.height);
       if(w===W&&Math.abs(h-H)<80)return;
@@ -247,8 +249,8 @@ function handleImageLoad(img,placeName,buster){
       if(sn)cx.drawImage(sn,0,0,sn.width/d,sn.height/d);else if(!init)scene(true);
     }
     function brush(c,size,thick){
-      const n=Math.round(size/2.4),[r,g,b]=c.match(/\w\w/g).map(h=>parseInt(h,16));
-      return{size,bs:Array.from({length:n},(_,i)=>{const j=(Math.random()-.5)*34;return{o:i/(n-1||1)-.5+(Math.random()-.5)*.03,w:(.8+Math.random()*1.8)*thick,a:.55+Math.random()*.4,p:Math.random()*9,c:`rgb(${r+j|0},${g+j|0},${b+j|0})`}})};
+      const n=Math.round(size/2.4),[r,g,b]=c.replace('#','').match(/\w\w/g).map(h=>parseInt(h,16)),sc=themeVar('--stroke-color');
+      return{size,bs:Array.from({length:n},(_,i)=>{const j=(Math.random()-.5)*34,s=Math.random()<.22;return{o:i/(n-1||1)-.5+(Math.random()-.5)*.03,w:(.8+Math.random()*1.8)*thick,a:.55+Math.random()*.4,p:Math.random()*9,c:s?sc:`rgb(${r+j|0},${g+j|0},${b+j|0})`}})};
     }
     function seg(B,x0,y0,x1,y1,t){
       const dx=x1-x0,dy=y1-y0,l=Math.hypot(dx,dy);if(!l)return;
@@ -257,14 +259,15 @@ function handleImageLoad(img,placeName,buster){
       cx.globalAlpha=1;
     }
     function scene(instant){
+      PALETTE=readPalette();col=PALETTE[colIdx];
       const id=++run,S=Math.max(54,Math.min(110,H*.11)),hz=H*.56,st=S*.5,P=[];
       const sweep=(y0,y1,amp,color,dur)=>{const pts=[];let k=0;for(let y=y0;y<=y1;y+=st,k++){const row=[];for(let x=-30;x<=W+30;x+=40)row.push([x,y+Math.sin(x*.005+k)*amp]);pts.push(...(k%2?row.reverse():row))}P.push({pts,color,dur,S})};
-      sweep(S*.3,hz,S*.12,PALETTE[0]||col,2.2);
-      sweep(hz-S*.2,H*.8,S*.15,PALETTE[1]||col,1.1);
-      sweep(H*.78,H+S*.3,S*.3,PALETTE[2]||col,1.2);
+      sweep(S*.3,hz,S*.12,PALETTE[0],2.2);
+      sweep(hz-S*.2,H*.8,S*.15,PALETTE[1],1.1);
+      sweep(H*.78,H+S*.3,S*.3,PALETTE[2],1.2);
       const sx=W*.74,sy=H*.3,r=Math.max(46,Math.min(120,Math.min(W,H)*.11)),ss=r*.5,sp=[];
       for(let a=0;;a+=.18){const q=Math.min(r-ss/2,a*ss*.16);sp.push([sx+q*Math.cos(a),sy+q*Math.sin(a)]);if(q>=r-ss/2)break}
-      P.push({pts:sp,color:PALETTE[3]||col,dur:.9,S:ss});
+      P.push({pts:sp,color:PALETTE[2],dur:.9,S:ss});
       const B=P.map(p=>brush(p.color,p.S,2.2)),at=(p,q)=>{const a=p.pts[q|0],b=p.pts[Math.min((q|0)+1,p.pts.length-1)],f=q%1;return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]};
       if(instant){P.forEach((p,i)=>{for(let j=1;j<p.pts.length;j++)seg(B[i],...p.pts[j-1],...p.pts[j],j*40)});return}
       let i=0,pos=0,last=performance.now()+250;
@@ -281,8 +284,12 @@ function handleImageLoad(img,placeName,buster){
     cv.onpointerdown=e=>{if(e.button)return;cv.setPointerCapture(e.pointerId);const[x,y]=xy(e);pd={B:brush(col,e.pointerType==='touch'?30:38,1),x,y,t:0,m:0};dirty=true;$('#hint').classList.add('gone')};
     cv.onpointermove=e=>{if(!pd)return;for(const q of e.getCoalescedEvents?.()||[e]){const[x,y]=xy(q),d=Math.hypot(x-pd.x,y-pd.y);if(d<2)continue;seg(pd.B,pd.x,pd.y,x,y,pd.t+=d);pd.x=x;pd.y=y;pd.m=1}};
     cv.onpointerup=cv.onpointercancel=()=>{if(pd&&!pd.m)seg(pd.B,pd.x,pd.y,pd.x+2,pd.y+1,1);pd=null};
-    $$('.sw button').forEach(b=>b.onclick=()=>{col=b.dataset.c;$$('.sw button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
-    $('#reset').onclick=()=>{run++;cx.clearRect(0,0,W,H);dirty=false;$('#hint').classList.remove('gone');scene(RM)};
+    const sw=$('#swatches');
+    const renderSwatches=()=>{sw.innerHTML=PALETTE.map((c,i)=>`<button type="button" style="--c:${c}" data-i="${i}" aria-label="${SW_NAMES[i]}" title="${SW_NAMES[i]}" aria-pressed="${i===colIdx}"></button>`).join('')};
+    sw.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;colIdx=+b.dataset.i;col=PALETTE[colIdx];$$('button',sw).forEach(x=>x.setAttribute('aria-pressed',x===b))});
+    renderSwatches();
+    function repaintCanvasWithTheme(){run++;PALETTE=readPalette();col=PALETTE[colIdx];cx.clearRect(0,0,W,H);dirty=false;$('#hint').classList.remove('gone');renderSwatches();scene(true)}
+    $('#reset').onclick=()=>{run++;PALETTE=readPalette();col=PALETTE[colIdx];cx.clearRect(0,0,W,H);dirty=false;$('#hint').classList.remove('gone');renderSwatches();scene(RM)};
     fit(true);scene(RM);new ResizeObserver(()=>fit()).observe(hero);
 
     /* ===== Concept 3: Come Closer ===== */
@@ -368,10 +375,9 @@ function handleImageLoad(img,placeName,buster){
     wall.addEventListener('pointerleave',()=>{gx=gy=0;if(!raf)raf=requestAnimationFrame(drift)});
 
     /* Theme, nav, scroll reveal */
-    const th=$('#theme'),setTheme=t=>{document.documentElement.dataset.theme=t;th.textContent=t==='dark'?'☀':'☾';try{localStorage.setItem('shexhibit-theme',t)}catch(e){}};
-    let saved=null;try{saved=localStorage.getItem('shexhibit-theme')}catch(e){}
-    setTheme(saved||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
-    th.onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+    const th=$('#theme'),setTheme=(t,repaint)=>{document.documentElement.setAttribute('data-theme',t);th.textContent=t==='dark'?'☀':'☾';try{localStorage.setItem(THEME_KEY,t)}catch(e){}if(repaint)repaintCanvasWithTheme()};
+    setTheme(document.documentElement.getAttribute('data-theme'),false);
+    th.onclick=()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark',true);
     const nav=$('#nav'),bg=$('#burger');
     bg.onclick=()=>bg.setAttribute('aria-expanded',nav.classList.toggle('open'));
     $$('nav a').forEach(a=>a.onclick=()=>{nav.classList.remove('open');bg.setAttribute('aria-expanded','false')});
