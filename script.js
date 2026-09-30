@@ -1,6 +1,3 @@
-/* SHExhibit — data-driven site controller
-   data.json is the single source of truth for artwork/site/team/map content.
-*/
 const IMG_TIMEOUT_MS=5000,IMG_MAX_RETRIES=3;
 
 function handleImageLoad(img,placeName,buster){
@@ -82,8 +79,23 @@ function handleImageLoad(img,placeName,buster){
       const heroImage=$('#heroImage');
       if(heroImage){
         heroImage.alt=site.hero_image_alt||site.name||'';
-        heroImage.dataset.src=site.hero_image||'';
-        handleImageLoad(heroImage,site.hero_image_name||site.hero_image_alt||site.name||'');
+        const heroName=site.hero_image_name||site.hero_image_alt||site.name||'';
+        const heroTheme=()=>{
+          let t=document.documentElement.dataset.theme;
+          if(!t){try{t=localStorage.getItem('shexhibit-theme')}catch(e){}}
+          if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+          return t==='dark'?'dark':'light';
+        };
+        const applyHero=()=>{
+          const src=heroTheme()==='dark'
+            ?(site.hero_image_dark||site.hero_image_light||'')
+            :(site.hero_image_light||site.hero_image_dark||'');
+          if(heroImage.dataset.src===src)return;
+          heroImage.dataset.src=src;
+          handleImageLoad(heroImage,heroName);
+        };
+        applyHero();
+        new MutationObserver(applyHero).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
       }
       const badgeText=$('#badgeText');
       if(badgeText) badgeText.textContent=site.hero_badge||'';
