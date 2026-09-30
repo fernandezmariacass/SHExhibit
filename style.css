@@ -14,7 +14,7 @@
   --bg-blue: #3A4E6B;
   --bg-yellow: #7A7340;
   --nav-bg: #2B1A2B;
-  --stroke-color: rgba(0, 0, 0, 0.5); /* Creates the dark hatching stroke overlay */
+  --stroke-color: rgba(0, 0, 0, 0.5);
   --text-main: #FFFFFF;
   --enter-gallery-bg: #2B2B2B;
   --enter-gallery-color: #FFFFFF;
@@ -167,7 +167,7 @@ header, nav, .navbar {
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* Canvas Paint Control Bar */
+/* Canvas Controls */
 .canvas-controls {
   position: relative;
   z-index: 2;
@@ -213,15 +213,9 @@ header, nav, .navbar {
   opacity: 0.8;
 }
 
-/* Gallery Section */
-.gallery-section {
+/* Gallery & Map Sections */
+.gallery-section, .map-section {
   padding: 4rem 2rem;
-}
-
-.gallery-section h2, .map-section h2 {
-  font-family: serif;
-  font-size: 2rem;
-  margin-bottom: 2rem;
 }
 
 .gallery-rail {
@@ -229,34 +223,6 @@ header, nav, .navbar {
   gap: 1.5rem;
   overflow-x: auto;
   padding-bottom: 1rem;
-}
-
-.artwork-card {
-  min-width: 280px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.artwork-card:hover {
-  transform: translateY(-4px);
-}
-
-.artwork-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.artwork-card .card-info {
-  padding: 1rem;
-}
-
-/* Map Section */
-.map-section {
-  padding: 2rem 2rem 4rem 2rem;
 }
 
 .map-container {
@@ -293,31 +259,8 @@ header, nav, .navbar {
   position: relative;
 }
 
-.close-modal {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.modal-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.modal-image-container img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .hero-content {
-    grid-template-columns: 1fr;
-  }
-  .modal-body {
     grid-template-columns: 1fr;
   }
 }
