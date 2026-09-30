@@ -377,15 +377,15 @@
   "site": {
     "name": "SHExhibit",
     "title": "SHExhibit of the South:",
-    "subtitle": "The Unveiled Corners of Beauty in Sta Rosa, Laguna",
+    "subtitle": "Discovering the Hidden Treasures in Santa Rosa, Laguna",
     "hero_image": "img/santa_rosa_arch.jpg",
     "hero_image_alt": "Santa Rosa Arch, Laguna",
-    "hero_badge": "UNVEILED · SANTA ROSA · LAGUNA · UNVEILED ·",
+    "hero_badge": "DISCOVER · SANTA ROSA · LAGUNA · MASTERPIECES ·",
     "hero_variants": [
       {
         "id": "A",
         "eyebrow": "Now on view · Santa Rosa, Laguna",
-        "description": "Step inside a gallery without walls. From oil paintings in a mall gallery to ceiling murals in a parish church, every work here was studied and written up by students, so the city's art finally gets the label it deserves.",
+        "description": "Welcome to a virtual art space where local artistry takes center stage. By researching and writing about masterpieces ranging from vibrant modern pieces in local malls to classic creations inside a local parish church, this platform seeks to give Santa Rosa’s art the appreciation it deserves.",
         "cta": "Enter the Gallery"
       },
       {
