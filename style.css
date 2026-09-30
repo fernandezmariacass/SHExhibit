@@ -169,6 +169,7 @@ footer{padding:36px var(--pad);border-top:1px solid var(--line);color:var(--mute
 .hero .eyebrow,.hero .big,.hero .of,.hero .sub,.hero .tag{text-shadow:0 0 .3em var(--gesso),0 0 .6em var(--gesso),0 0 1.2em color-mix(in srgb,var(--gesso) 80%,transparent)}
 .hero .tag{color:var(--ink)}
 .hero .frame,.hero .badge{z-index:2;pointer-events:none}
+.hero .frame .img-placeholder,.hero .frame .img-reload{pointer-events:auto}
 .mq{z-index:3;background:var(--gesso);touch-action:pan-y}
 .tools{position:absolute;left:0;right:0;bottom:46px;z-index:3;display:flex;align-items:center;gap:18px;padding:10px var(--pad);background:color-mix(in srgb,var(--gesso) 88%,transparent);backdrop-filter:blur(8px);border-block:1px solid var(--line);touch-action:pan-y}
 .sw{display:flex;gap:10px}
